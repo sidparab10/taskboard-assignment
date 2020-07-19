@@ -1,0 +1,27 @@
+<div class="list-item">
+  <div class="task-item-content" [class]="'priority-'+ getPriority(taskData.priority)">{{taskData.content}}</div>
+  <div class="extra-details" *ngIf="isExtra">
+    <div class="left-elements" *ngIf="taskData.extra.attachment || taskData.extra.endDate">
+      <div class="attachments" *ngIf="taskData.extra.attachment">
+        <i class="fa fa-paperclip" aria-hidden="true"></i>
+      </div>
+      <div class="end-date" *ngIf="taskData.extra.endDate">
+        <i class="fa fa-bell-o" aria-hidden="true"></i>
+        <span class="date-label">{{taskData.extra.endDate}}</span>
+      </div>
+    </div>
+    <div class="right-elements" *ngIf="taskData.extra.user.length">
+      <div class="userList">
+        <button class="user-icon-btn" mat-raised-button [matTooltip]="getUserList(taskData.extra.user)"
+        [matTooltipClass]="'user-tooltip'" aria-label="user list">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="delete-btn-container">
+    <button class="delete-btn" (click)="deleteTask()">
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>

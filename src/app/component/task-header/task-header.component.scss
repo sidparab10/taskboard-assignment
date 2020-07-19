@@ -1,0 +1,77 @@
+.task-header-container {
+  padding: 16px;
+  position: relative;
+  border-bottom: 3px solid #eee;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 75%;
+    border-bottom: 3px solid #0068ff;
+    bottom: -3px;
+    left: 0;
+  }
+
+  .back-btn-container {
+    >* {
+      display: inline;
+      vertical-align: middle;
+      color: #718398;
+    }
+
+    .back-btn-icon {
+      font-size: 16px;
+    }
+
+    .back-btn-label {
+      margin-left: 4px;
+      font-size: 14px;
+      line-height: 15px;
+    }
+  }
+
+  .title-container {
+    width: calc(100% - 16px);
+    clear: both;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    >* {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    h2 {
+      color: #253445;
+      margin: 0;
+    }
+
+    .down-icon {
+      color: #666;
+      font-size: 20px;
+      margin-left: 4px;
+    }
+  }
+
+  .right-aligned-elements {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    padding: 4px;
+
+    .fa {
+      font-size: 22px;
+      color: #6c7c93;
+      padding: 4px;
+
+      &:not(:last-child) {
+        box-shadow: 1px 1px 1px 1px #eee;
+        border-radius: 4px;
+        margin-right: 10px;
+      }
+    }
+  }
+}

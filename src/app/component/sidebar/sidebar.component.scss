@@ -1,0 +1,10 @@
+$sidebar-width: 50px;
+
+.task-sidebar-container {
+  height: 100vh;
+  width: $sidebar-width;
+  display: inline-block;
+  vertical-align: top;
+  top: 0;
+  background: #0068ff;
+}

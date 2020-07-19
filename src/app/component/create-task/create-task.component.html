@@ -1,0 +1,60 @@
+<div class="create-task-container">
+  <div class="title">
+    <h3> Add New Task/User</h3>
+  </div>
+  <div class="task-config-inputs">
+    <mat-tab-group>
+      <!-- Task tab -->
+      <mat-tab label="Task">
+        <div class="task-tab-container">
+          <mat-form-field required class="task-details task-input">
+            <mat-label>Task</mat-label>
+            <input matInput [(ngModel)]="taskContent" placeholder="Task">
+          </mat-form-field>
+          <div class="task-input priority-radio">
+            <div class="priority-label">Select Task Priority</div>
+            <mat-radio-group #taskPriority [(ngModel)]="selectedPriority" required aria-label="Select task priority">
+              <mat-radio-button value="0" checked='true'>Low</mat-radio-button>
+              <mat-radio-button value="1">Medium</mat-radio-button>
+              <mat-radio-button value="2">High</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <mat-form-field appearance="fill" *ngIf="userList.length">
+            <mat-label>SELECT USER</mat-label>
+            <mat-select [formControl]="userControl" multiple>
+              <mat-option *ngFor="let user of userList" [value]="user">{{user}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="task-input">
+            <mat-checkbox [(ngModel)]="attachCheck" [checked]="attachCheck">Add attachment</mat-checkbox>
+          </div>
+          <mat-form-field class="task-input" appearance="fill">
+            <mat-label>Choose Reminder Date</mat-label>
+            <input matInput [(ngModel)]="endDate" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+        </div>
+        <div class="task-btn-container">
+          <button (click)="closePopup()">Cancel</button>
+          <button (click)="createTask()" [mat-dialog-close]="resultData" class="primary">Create</button>
+        </div>
+      </mat-tab>
+
+      <!-- User Tab -->
+      <mat-tab label="User">
+        <div class="user-tab-container">
+          <mat-form-field required class="task-details task-input">
+            <mat-label>Username</mat-label>
+            <input matInput [(ngModel)]="username" placeholder="Username">
+          </mat-form-field>
+        </div>
+        <div class="task-btn-container">
+          <button (click)="closePopup()">Cancel</button>
+          <button (click)="createUser()" [mat-dialog-close]="resultData" class="primary">Create</button>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

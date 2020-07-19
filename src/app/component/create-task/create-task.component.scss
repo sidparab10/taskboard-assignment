@@ -1,0 +1,55 @@
+.create-task-container {
+  .title {
+    text-align: center;
+  }
+
+  .task-tab-container,
+  .user-tab-container {
+    padding: 10px;
+  }
+
+  .task-config-inputs {
+
+    .task-input {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+
+    .task-details {
+      width: 100%;
+    }
+
+    .priority-radio {
+      .priority-label {
+        margin-bottom: 5px;
+      }
+
+      mat-radio-button {
+        display: inline-flex;
+        width: 33%;
+      }
+    }
+  }
+
+  .task-btn-container {
+    text-align: center;
+    padding: 10px;
+
+    button {
+      padding: 10px 5px;
+      border: none;
+      margin: 0 10px;
+      border-radius: 3px;
+      width: 100px;
+      box-shadow: 1px 1px 1px 1px #aaa;
+      font-weight: 600;
+      background-color: #fff;
+
+      &.primary {
+        color: white;
+        background-color: #0068ff;
+      }
+    }
+  }
+}

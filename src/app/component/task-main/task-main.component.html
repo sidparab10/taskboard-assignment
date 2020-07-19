@@ -1,0 +1,84 @@
+<div class="task-main-container">
+  <div class="task-legend-container">
+    <div class="left-aligned-elements">
+      <span class="make-favourite-icon">
+        <i aria-hidden="true" class='fa fa-star-o'></i>
+      </span>
+      <span class="people-count-card legend-card">
+        <i aria-hidden="true" class='fa fa-user-o'></i>
+        <span class="legend-card-label">{{userList.length}} People</span>
+      </span>
+      <span class="time-card legend-card">
+        <i aria-hidden="true" class="fa fa-clock-o"></i>
+        <span class="legend-card-label">2 days left</span>
+      </span>
+    </div>
+    <div class="right-aligned-elements">
+      <label class="task-toggle-label">Show my tasks only</label>
+      <mat-slide-toggle></mat-slide-toggle>
+    </div>
+  </div>
+  <div class="task-level-container">
+    <!-- <div class="list-container" *ngFor="let task of taskLists" [class]="task.name+'-list-container'"> -->
+
+    <div class="list-container" [class]="taskLists[0].name+'-list-container'">
+      <div class="list-header">
+        <span class="list-title">{{taskLists[0].label}}</span>
+        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+      </div>
+      <div cdkDropList (cdkDropListDropped)="drop($event)" #todoList="cdkDropList"
+        [cdkDropListConnectedTo]="[inProgList]" [cdkDropListData]="taskLists[0].list"
+        [class.no-task-list]="!taskLists[0].list.length" class="list-items-container">
+        <div *ngFor="let item of taskLists[0].list;let taskIdx=index;" cdkDrag>
+          <app-task-card [taskData]="item" [id]="taskIdx" (deleteCurrTask)="deleteTask($event, 0)"></app-task-card>
+        </div>
+      </div>
+    </div>
+
+    <div class="list-container" [class]="taskLists[1].name+'-list-container'">
+      <div class="list-header">
+        <span class="list-title">{{taskLists[1].label}}</span>
+        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+      </div>
+      <div cdkDropList (cdkDropListDropped)="drop($event)" #inProgList="cdkDropList"
+        [class.no-task-list]="!taskLists[1].list.length" [cdkDropListConnectedTo]="[todoList ,inRevList]"
+        [cdkDropListData]="taskLists[1].list" class="list-items-container">
+        <div *ngFor="let item of taskLists[1].list;let taskIdx=index;" cdkDrag>
+          <app-task-card [taskData]="item" [id]="taskIdx" (deleteCurrTask)="deleteTask($event, 1)"></app-task-card>
+        </div>
+      </div>
+    </div>
+
+    <div class="list-container" [class]="taskLists[2].name+'-list-container'">
+      <div class="list-header">
+        <span class="list-title">{{taskLists[2].label}}</span>
+        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+      </div>
+      <div cdkDropList (cdkDropListDropped)="drop($event)" #inRevList="cdkDropList"
+        [class.no-task-list]="!taskLists[2].list.length" [cdkDropListConnectedTo]="[inProgList, doneList]"
+        [cdkDropListData]="taskLists[2].list" class="list-items-container">
+        <div *ngFor="let item of taskLists[2].list;let taskIdx=index;" cdkDrag>
+          <app-task-card [taskData]="item" [id]="taskIdx" (deleteCurrTask)="deleteTask($event, 2)"></app-task-card>
+        </div>
+      </div>
+    </div>
+
+    <div class="list-container" [class]="taskLists[3].name+'-list-container'">
+      <div class="list-header">
+        <span class="list-title">{{taskLists[3].label}}</span>
+        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+      </div>
+      <div cdkDropList (cdkDropListDropped)="drop($event)" #doneList="cdkDropList"
+        [class.no-task-list]="!taskLists[3].list.length" [cdkDropListConnectedTo]="[inRevList]"
+        [cdkDropListData]="taskLists[3].list" class="list-items-container">
+        <div *ngFor="let item of taskLists[3].list;let taskIdx=index;" cdkDrag>
+          <app-task-card [taskData]="item" [id]="taskIdx" (deleteCurrTask)="deleteTask($event, 3)"></app-task-card>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="add-task-btn-container">
+    <button class="add-task-btn" (click)="createNewTask()">+</button>
+  </div>
+</div>

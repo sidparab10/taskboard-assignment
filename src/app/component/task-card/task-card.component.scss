@@ -1,0 +1,95 @@
+.list-item {
+  padding: 15px 10px;
+  border: 1px solid #eee;
+  background: #fff;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px 1px #eee;
+  position: relative;
+
+  .task-item-content {
+    border-left: 3px solid;
+    padding-left: 4px;
+    width: calc(100% - 15px);
+
+    &.priority-low {
+      border-color: #b3bac5;
+    }
+
+    &.priority-medium {
+      border-color: #ffba33;
+    }
+
+    &.priority-high {
+      border-color: #ff5a5a;
+    }
+  }
+
+  .extra-details {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .left-elements {
+      >* {
+        color: #8c99ab;
+
+        &:not(:last-child) {
+          margin-right: 4px;
+        }
+      }
+
+      .end-date {
+        padding: 5px;
+        display: inline-block;
+        background-color: #f1f2f4;
+        border-radius: 4px;
+        vertical-align: middle;
+
+        .date-label {
+          margin-left: 4px;
+        }
+      }
+
+      .attachments {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 5px 10px;
+        background-color: #f1f2f4;
+        border-radius: 5px;
+        font-size: 18px;
+      }
+    }
+
+    .right-elements {
+      .userList {
+
+        .user-icon-btn {
+          border: none;
+          padding: 0;
+          background-color: transparent;
+          color: #8c99ab;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .delete-btn-container {
+    position: absolute;
+    top: 5px;
+    right: 6px;
+
+    .delete-btn {
+      background-color: transparent;
+      border: none;
+      color: #8c99ab;
+      padding: 0;
+    }
+  }
+}
+
+::ng-deep .mat-tooltip {
+  white-space: pre-line !important;
+}

@@ -1,0 +1,149 @@
+.task-main-container {
+  padding: 16px;
+
+  .task-legend-container {
+    margin: 10px 0 30px 0px;
+
+    .make-favourite-icon {
+      font-size: 24px;
+    }
+
+    >div {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .left-aligned-elements {
+      >* {
+        display: inline-block;
+        vertical-align: middle;
+
+        &:not(:first-child) {
+          margin-left: 15px;
+        }
+      }
+
+      .legend-card {
+        padding: 4px;
+        border-radius: 3px;
+
+        .legend-card-label {
+          margin-left: 4px;
+        }
+      }
+
+      .people-count-card {
+        background-color: #f1f2f4;
+        color: #8491a5;
+      }
+
+      .time-card {
+        background-color: #ffeac0;
+        color: #ffaa46;
+      }
+    }
+
+    .right-aligned-elements {
+      float: right;
+
+      .task-toggle-label {
+        display: inline-block;
+        color: #7f8ea2;
+      }
+
+      .mat-slide-toggle {
+        vertical-align: middle;
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .task-level-container {
+    display: flex;
+
+    .list-container {
+      // display: inline-flex;
+      // order: 4;
+      min-height: 250px;
+      background: #f3f5f7;
+      width: 25%;
+      border-radius: 5px;
+      padding: 10px;
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+
+      .list-header {
+        width: 100%;
+        display: block;
+        margin-bottom: 15px;
+
+        .list-title {
+          color: #1c2b3d;
+          font-size: 14px;
+          font-weight: 600;
+        }
+
+        .fa {
+          float: right;
+        }
+      }
+
+      .list-items-container {
+        display: block;
+        width: 100%;
+        min-height: 50px;
+        background: #eee;
+        height: calc(100% - 35px);
+
+        &.no-task-list {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 5px;
+        }
+      }
+
+    }
+  }
+
+  .add-task-btn-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    .add-task-btn {
+      border: none;
+      border-radius: 50%;
+      background-color: #0068ff;
+      color: #fff;
+      height: 50px;
+      width: 50px;
+      font-size: 30px;
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .task-main-container {
+    .task-level-container {
+      display: block;
+
+      .list-container {
+        width: calc(100% - 20px);
+        max-height: 250px;
+        overflow-y: auto;
+
+        &:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+}
