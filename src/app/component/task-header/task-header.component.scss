@@ -75,3 +75,22 @@
     }
   }
 }
+
+@media screen and (max-width: 375px) {
+  .task-header-container {
+    padding: 5px;
+
+    .title-container {
+      position: static;
+      width: 100%;
+      text-align: center;
+      transform: none;
+    }
+
+    .right-aligned-elements {
+      transform: none;
+      position: static;
+      text-align: center;
+    }
+  }
+}
